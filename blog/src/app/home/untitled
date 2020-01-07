@@ -1,0 +1,30 @@
+<ng-vote 
+(vote)="onVote($event)" 
+[totalVotes]="votes" 
+[selectedVote]="selectedVote" 
+[config]="voteConfig">
+<!-- Define Up Vote Button -->
+<ng-vote-up>
+<!-- Content will be projected -->
+<i class="my-up-icon"></i>UpVote
+</ng-vote-up>
+<!-- Add Down Vote Button -->
+<ng-vote-down>DownVote</ng-vote-down>
+</ng-vote>
+
+
+<div class="col-sm-2" style="margin-top: 25px">
+							<ng-vote 
+							(vote)="onVote($event)" 
+							[totalVotes]="votes" 
+							[selectedVote]="selectedVote" 
+							[config]="voteConfig">
+							<!-- Define Up Vote Button -->
+							<ng-vote-up>
+								<!-- Content will be projected -->
+								<i class="my-up-icon"></i>UpVote
+							</ng-vote-up>
+							<!-- Add Down Vote Button -->
+							<ng-vote-down>DownVote</ng-vote-down>
+						</ng-vote>
+						</div>

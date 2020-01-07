@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+.loginPage{
+	width: 40%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.loginPageHeading{
+	text-align: center;
+}
+
+.signinPage{
+	width: 40%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.signinPageHeading{
+	text-align: center;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a:focus,a:hover {
+  text-decoration: none !important; 
+}
+
+/*.btn-link {
+	color: black !important;
+	text-decoration: none !important;
+	text-shadow: 0 1px 3px rgba(0,0,0,.3) !important;
+	font-weight: 900 !important;
+	font-family: titillium web,sans-serif !important;
+	line-height: 1.1 !important;
+}*/

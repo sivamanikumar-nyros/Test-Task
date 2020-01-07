@@ -1,0 +1,37 @@
+<!-- main app container -->
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+</div>
+<div class="upArrow">
+	<button *ngIf="isShow" (click)="gotoTop()"><img src="https://img.icons8.com/material/24/000000/hand-cursor--v1.png"></button>
+</div>
+<app-footer></app-footer>
+<!-- <div class="card">
+	<div class="col-md-6" *ngFor="let contact of data.contacts">
+		<div class="contact-details">
+			<h2>Name:{{contact.name}}</h2>
+			<p>Location:{{contact.location}}</p>
+			<p>Role:{{contact.role}}</p>
+			<p>Company:{{contact.company}}</p>
+			<p>Info:{{contact.info}}</p>
+			<p>Email:{{contact.email}}</p>
+			<p>Twitter:{{contact.twitter}}</p>
+		</div>
+		<hr>
+	</div>
+</div> -->
+<!-- <app-cars></app-cars> -->
+
+<!-- <app-header *ngIf="router.url == '/'"><app-header>
+<app-home *ngIf="router.url != '/'"></app-home> //component I want hidden unless url '/'
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+<router-outlet></router-outlet>
+</div></div></div> -->

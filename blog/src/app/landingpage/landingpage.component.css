@@ -1,0 +1,20 @@
+.headerText{
+	text-shadow: 0 1px 3px rgba(0,0,0,.3);
+	font-weight: 700 !important;
+	padding-bottom: .10rem;
+	font-family: titillium web,sans-serif;
+	line-height: 1.1;
+	color: black;
+	border-bottom: 2px solid white;
+	margin-left: 35%;
+	margin-top: 5%;
+}
+
+section{
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.Info{
+	border: 2px solid #5cb85c ;
+}

@@ -1,0 +1,64 @@
+<!-- <div class="container" id = "pageMargin" style="margin-top: 100px">
+  <div class="articleCreationPage">
+    <form id="formNewArticle" name="formNewArticle" #articleData = "ngForm" 
+      (ngSubmit) = "addNewArticle(articleData.value)">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add New Article</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="name" required="" ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="color">Description:</label>
+            <textarea type="text" name="description" id="description" required="" placeholder="description" ngModel class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="color">Author:</label>
+            <p>{{currentUser.firstName}}</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-success">Add Article</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="container" id = "pageMargin" style="margin-top: 100px">
+  <div class="articleCreationPage">
+    <form [formGroup]="articleForm" (ngSubmit) = "addNewArticle()">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add New Article</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" formControlName="name" id="name" placeholder="name" [ngClass]="{ 'is-invalid': submitted && fval.name.errors }" class="form-control">
+            <div *ngIf="submitted && fval.name.errors" class="invalid-feedback">
+                <div *ngIf="fval.name.errors.required"><span class="errors"> Name is required</span></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="color">Description:</label>
+            <textarea type="text" formControlName="description" id="description" placeholder="description" [ngClass]="{ 'is-invalid': submitted && fval.description.errors }" class="form-control"></textarea>
+          </div>
+          <div *ngIf="submitted && fval.description.errors" class="invalid-feedback">
+                <div *ngIf="fval.description.errors.required"><span class="errors"> Description is required</span></div>
+            </div>
+          <div class="form-group">
+            <label for="color">Author:</label>
+            <p>{{currentUser.firstName}}</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-success">Add Article</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

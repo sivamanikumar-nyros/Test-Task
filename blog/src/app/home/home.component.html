@@ -1,0 +1,122 @@
+<div class="container">
+	<div class="homePage">
+		<div class="homePage">
+			<div class="row">
+				<ul class="col-sm-6">
+					<li class="nav-item">
+						<a routerLink="/article">
+							<img src="https://img.icons8.com/color/48/000000/book-and-pencil.png"> New Article
+						</a>
+					</li>			
+				</ul>
+				<div class="col-sm-6">
+					<h1 class="currentUser">Hi {{currentUser.firstName}}!</h1>
+					<p class="currentArticle">Create your new article</p>
+				</div>
+				<!-- <p class="currentArticle">
+					<a routerLink="/TechnologyRelatedArticles">
+						Technology Related Articles
+					</a>
+				</p> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="homePage">
+		<div class="row">
+			<div class="col-sm-4">
+				<h2><li class="nav-item">
+					<a routerLink="/" class="nav-link globalArticle" routerLinkActive="active">
+						Global Feed
+					</a>
+				</li></h2>
+			</div>
+			<div class="col-sm-4">
+					<input type="text" class="form-control" placeholder="Search by Article Name" [(ngModel)]="searchTerm" />
+			</div>
+			<div class="col-sm-4">
+				<h2><li class="nav-item">
+					<a routerLink="userArticle" class="nav-link globalArticle" routerLinkActive="active">
+						Your Feed
+					</a>
+				</li></h2>
+			</div>	
+		</div>
+		<hr>
+		<div class="">
+
+			<div class="lineBreak" *ngFor = "let article of filteredArticles">
+				<div class="homePage">
+					<div class="row">
+						<h1 *ngIf="currentUser.firstName === share_btn" class="share_button">This post was shared by: {{share_btn}}{{article.id}}</h1>
+						<div class="col-sm-6">
+							<h3><b style="color: white;">Author :</b><span style="color: gold;"> {{article.author}}</span></h3>
+						</div>
+						<!-- <div class="col-sm-6">
+							<b class="Rating"> Rating </b> <rating [(ngModel)]="starsCount"></rating> 
+						</div> -->
+					</div>
+					<div>
+						<h3><b style="color: white;">Article Name :</b> <span style="color: gold;"> {{article.name}}</span></h3>
+					</div>
+					<!-- <div class="row"> -->
+						
+						<div class="col-sm-12">
+							<h3><b style="color: white;">Description : </b> <br><br> 
+								<span style="color: black; line-height: 4px;font-size: 16px">{{article.description}}</span></h3>
+
+						</div>
+					<!-- </div> -->
+					<br><br><br><br>
+					<div class="Comment">
+						<h4>Click to Show and Hide Comments</h4>
+						<img src="https://img.icons8.com/material/24/000000/right-down2--v1.png">
+					</div>
+						<ngb-accordion [closeOthers]="true" activeIds="static-1">
+							<ngb-panel id="static-1" title="Comments">
+								<ng-template ngbPanelContent>
+									<div class="commentsBlog">
+										<div *ngFor="let comment of UserComments" >
+											<div *ngIf="comment.article_id === article.id">
+												<hr>	
+												<p><span class="UserComment">{{comment.user_id}} :- </span> {{comment.comment}}</p>
+											</div>
+										</div>
+									</div>
+									<hr/>
+									<h2 class="Comment">Add Comment</h2>
+									<div class="container-fluid">
+										<form id="formNewArticleComment" name="formNewArticleComment" #articleCommentData = "ngForm" 
+										(ngSubmit) = "addNewArticleComment(articleCommentData.value, article.id)">
+										<div class="form-group">
+											<textarea class="form-control" ngModel rows="3" name="comment" id="comment" placeholder="comment"></textarea>
+											<br/>
+
+											<button class="btn btn-primary">Send</button>
+										</div>
+									</form>
+										<button class="btn btn-sm btn-primary" (click)="share(article)">
+											<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png" style="width: 40px;height: 40px">
+										</button>
+								</div>
+							</ng-template>
+						</ngb-panel>
+					</ngb-accordion>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <form [formGroup]="commentsForm" (ngSubmit) = "addNewComment()">
+	<div class="form-group">
+		<label for="comment">Add Comment</label>
+		<input type="text" formControlName="comment" id="comment" placeholder="comment" [ngClass]="{ 'is-invalid': submitted && fval.comment.errors }" class="form-control">
+		<div *ngIf="submitted && fval.comment.errors" class="invalid-feedback">
+			<div *ngIf="fval.comment.errors.required"><span class="errors"> Comment is required</span></div>
+		</div>
+		<button type="submit" class="btn btn-success">Add Comment</button>
+	</div>
+</form> -->

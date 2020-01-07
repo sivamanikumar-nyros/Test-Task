@@ -1,0 +1,34 @@
+<div class="header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">MyBlog</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+        <a routerLink="/" class="nav-link" routerLinkActive="active">
+          <img src="https://img.icons8.com/ios/24/000000/homeadvisor.png"> Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/register" class="nav-link" routerLinkActive="active">
+          <img src="assets/images/signup.png" width="20"> Sign up
+        </a>
+      </li>
+      <li *ngIf="!currentUser">
+        <a routerLink="/login" class="nav-link" routerLinkActive="active">
+          <img src="assets/images/login.jpg" width="20"> Sign in
+        </a>
+      </li>
+      <li *ngIf="currentUser" class="nav-item">
+        <a  class="nav-item nav-link" style="cursor:pointer" (click)="logout()">
+          <img src="assets/images/logout.png" width="20"> Logout
+        </a>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>

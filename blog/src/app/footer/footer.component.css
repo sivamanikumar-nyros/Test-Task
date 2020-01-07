@@ -1,0 +1,31 @@
+/*.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightgrey;
+   color: white;
+   text-align: center;
+   border-color: #e7e7e7;
+}*/
+
+/*.navbar-brand {
+    font-family: titillium web,sans-serif !important;
+    font-size: 2.5rem !important;
+    color: #5cb85c !important;
+    font-weight: bold;
+    padding: 70px;
+    padding-top: 1.35rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    border-color: #e7e7e7; 
+}
+
+footer {
+    background: #f3f3f3;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}	*/

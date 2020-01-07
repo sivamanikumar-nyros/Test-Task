@@ -1,0 +1,18 @@
+/*.contact-details{
+	background-color: #5cb85c;
+	color: white;
+	width:80%;
+	margin-left: 73px;
+	margin-right: auto;
+	padding: 10px;
+}*/
+
+.upArrow {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+}

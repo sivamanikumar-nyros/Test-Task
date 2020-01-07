@@ -1,0 +1,100 @@
+<div class="container RegisterPage">
+  <div class="signinPage">
+    <h1 class="signinPageHeading">Sign up</h1 >
+        <div class="signinPageHeading"><a routerLink="/login" class="btn btn-link  accountButton">Have an account?</a></div>
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.firstName.errors }" placeholder="Enter First Name here"/>
+            <div *ngIf="submitted && fval.firstName.errors" class="invalid-feedback">
+                <div *ngIf="fval.firstName.errors.required"><span class="errors">First Name is required</span></div>
+            </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="Enter Last Name here"/>
+      </div>
+      <div *ngIf="submitted && fval.lastName.errors" class="invalid-feedback">
+                <div *ngIf="fval.lastName.errors.required"><span class="errors">Last Name is required</span></div>
+            </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here"/>
+        <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+            <div *ngIf="fval.email.errors.required"><span class="errors">Email is required</span></div>
+            <div *ngIf="fval.email.errors.email"><span class="errors">Enter valid email address</span></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" formControlName="phone" minlength=10 maxlength=10 OnlyNumber="true" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }" placeholder="Enter Phone here"/>
+        <div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+            <div *ngIf="fval.phone.errors.required"><span class="errors">Phone is required</span></div>
+            <div *ngIf="fval.phone.errors.minlength"><span class="errors">Please enter valid phone number</span></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" minlength=6 maxlength=8 [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter Password here"/>
+        <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+            <div *ngIf="fval.password.errors.required"><span class="errors">Password is required</span></div>
+            <div *ngIf="fval.password.errors.minlength"><span class="errors">Password must be at least 6 characters</span></div>
+        </div>
+        
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary signinButton">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+<style type="text/css">
+    .accountButton{
+        color: #5cb85c;
+    }
+
+    .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 30px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.signinButton{
+    float: right;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    padding: 10px;
+    font-size: 1.5em;   
+}
+
+.RegisterPage{
+  padding: 50px;
+}
+
+.errors{
+    color: #d43232;
+}
+</style>
